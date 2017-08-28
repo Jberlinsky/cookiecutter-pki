@@ -15,18 +15,18 @@ CC_ROOT = os.path.abspath(
 
 @pytest.fixture(scope='function')
 def default_baked_project(tmpdir):
-    outdir = str(tmp.mkdir('pki-project'))
+    out_dir = str(tmpdir.mkdir('pki-project'))
 
     main.cookiecutter(
             CC_ROOT,
             no_input=True,
-            extra_content={},
+            # extra_content={},
             output_dir=out_dir,
     )
 
     yield os.path.join(
             out_dir,
-            'project_name',
+            'acme_corp-pki',
     )
 
     shutil.rmtree(out_dir)
@@ -44,13 +44,6 @@ def test_makefile(default_baked_project):
 
     assert os.path.exists(makefile_path)
     assert no_curlies(makefile_path)
-
-
-def test_requirements(default_baked_project):
-    requirements_path = os.path.join(default_baked_project, 'requirements.txt')
-
-    assert os.path.exists(requirements_path)
-    assert no_curlies(requirements_path)
 
 
 def test_folders(default_baked_project):
