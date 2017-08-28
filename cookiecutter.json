@@ -1,0 +1,13 @@
+{
+  "organization": "ACME Corp.",
+  "description": "PKI infrastructure for {{cookiecutter.organization}}",
+  "repo_name": "{{ cookiecutter.organization.lower().replace(' ', '_').replace('.', '') }}-pki",
+  "author_name": "Your name (or your organization/company/team)",
+  "open_source_license": ["Not open source"],
+  "country_code": "US",
+  "state": "NY",
+  "organizational_unit": "Infrastructure Operations Certificate Authority",
+  "root_common_name": "{{cookiecutter.organization}} Root CA",
+  "root_certificate_validity_in_days": 7300,
+  "intermediate_common_name": "{{cookiecutter.organization}} Intermediate"
+}

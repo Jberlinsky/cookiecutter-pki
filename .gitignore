@@ -1,0 +1,6 @@
+docs/site/
+
+.DS_Store
+
+.cache/*
+tests/__pycache__/*
